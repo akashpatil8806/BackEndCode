@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+    
+
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900">
+        <div class="form p-10">
+            <form action="/create" method="post" class="text-white">
+                <input class="block  w-full rounded-md outline-none px-5 py-2 bg-zinc-500 " name="title" type="text" placeholder="Title goes..">
+                <textarea class="block w-full  rounded-md outline-none  px-5 py-2 bg-zinc-500 mt-5 resize-none" name="details" placeholder="enter your task details" id=""></textarea>
+                <input class="mt-2 bg-blue-500 px-5 py-3 rounded-md" type="submit" value="create Task">
+            </form>
+             
+        </div>
+        <div class="task text-white gap-3 flex flex-wrap p-10">
+    <% if (files && files.length > 0) { %>
+        <% files.forEach(function(val) { %>
+            <div class="task w-72 bg-zinc-800 px-3 py-4   rounded-md">
+                <%= val %>
+               <div class="flex  w-full justify-between item-center">
+                 <a class=" inline-block  text-blue-500" href="/file/<%= val %>">Read more.</a>
+                <a class="text-blue-400" href="/edit/<%= val %>">Edit fileName</a>
+               </div>
+            </div>
+        <% }) %>
+        
+    <% } else { %>
+        <p class="text-white">No files found</p>
+    <% } %>
+    
+</div>
+
+
+    </div>
+</body>
+</html>
