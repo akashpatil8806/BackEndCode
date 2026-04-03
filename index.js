@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
     res.render("index", { files: files || [] });
   });
 });
-
+// for the edit name
 app.get("/edit/:filename", function (req, res) {
   res.render("edit", { filename: req.params.filename });
 });
@@ -37,7 +37,7 @@ app.post("/edit", function (req, res) {
       console.log(req.body.Previeus);
       console.log(req.body.newname);
       res.redirect("/");
-    }
+    },
   );
 });
 
@@ -51,7 +51,7 @@ app.get("/file/:filename", function (req, res) {
         filename: req.params.filename,
         filedata: filedata,
       });
-    }
+    },
   );
 });
 
